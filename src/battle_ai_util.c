@@ -747,6 +747,19 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     case EFFECT_SONICBOOM:
         dmg = 20;
         break;
+    case EFFECT_SUPER_FANG:
+        dmg = gBattleMons[battlerDef].hp / 2;
+        if (dmg == 0)
+            dmg = 1;
+        break;
+    case EFFECT_ENDEAVOR:
+        dmg = gBattleMons[battlerDef].hp - gBattleMons[battlerAtk].hp;
+        if (dmg < 0)
+            dmg = 0;
+        break;
+    case EFFECT_FINAL_GAMBIT:
+        dmg = gBattleMons[battlerAtk].hp;
+        break;
     //case EFFECT_METAL_BURST:
     //case EFFECT_COUNTER:
     default:
