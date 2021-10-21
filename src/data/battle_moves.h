@@ -6022,7 +6022,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_WRING_OUT] =
     {
         .effect = EFFECT_WRING_OUT,
-        .power = 0,
+        .power = 1,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 5,
