@@ -760,6 +760,32 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     case EFFECT_FINAL_GAMBIT:
         dmg = gBattleMons[battlerAtk].hp;
         break;
+    case EFFECT_MULTI_HIT:
+        if (gBattleMons[battlerAtk].ability == ABILITY_SKILL_LINK)
+        {
+            dmg *= 5;
+        }
+        else
+        {
+            #if B_UPDATED_MOVE_DATA >= GEN_5
+                dmg *= 31;
+                dmg /= 10;
+            #else
+                dmg *= 3;
+            #endif
+        }
+        break;
+    case EFFECT_DOUBLE_HIT:
+    case EFFECT_DOUBLE_IRON_BASH:
+    case EFFECT_TWINEEDLE:
+        dmg *= 2;
+        break;
+    case EFFECT_TRIPLE_HIT:
+        dmg *= 3;
+        break;
+    case EFFECT_TRIPLE_KICK:
+        dmg *= 6;
+        break;
     //case EFFECT_METAL_BURST:
     //case EFFECT_COUNTER:
     default:
