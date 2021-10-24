@@ -189,8 +189,6 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
             if (gBattleMoves[move].power != 0 && !(moveLimitations & gBitTable[i]))
             {
                 dmg = AI_CalcDamage(move, sBattler_AI, gBattlerTarget);
-                if (dmg == 0)
-                    dmg = 1;
             }
 
             AI_THINKING_STRUCT->simulatedDmg[sBattler_AI][gBattlerTarget][i] = dmg;

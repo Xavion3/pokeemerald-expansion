@@ -733,6 +733,9 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     else
         dmg = (critDmg + normalDmg * (critChance - 1)) / critChance;
 
+    if (dmg == 0)
+        dmg = 1;
+
     // handle dynamic move damage
     switch (gBattleMoves[move].effect)
     {
