@@ -794,6 +794,9 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
         break;
     }
 
+    if (AI_GetMoveEffectiveness(move, battlerAtk, battlerDef) == AI_EFFECTIVENESS_x0)
+        dmg = 0;
+
     RestoreBattlerData(battlerAtk);
     RestoreBattlerData(battlerDef);
 
